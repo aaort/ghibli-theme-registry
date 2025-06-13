@@ -149,6 +149,15 @@
 	* {
 		@apply border-border;
 	}
+	html,
+	body {
+		transition:
+			background-color 0.3s,
+			color 0.3s,
+			border-color 0.3s,
+			fill 0.3s,
+			stroke 0.3s;
+	}
 	body {
 		@apply bg-background text-foreground;
 	}
