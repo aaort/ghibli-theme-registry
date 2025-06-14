@@ -15,6 +15,7 @@ const registry: RegistryEntry[] = [
       "tailwind-merge",
     ],
     devDependencies: [],
+    registryDependencies: ["utils"],
 
     // Tailwind CSS config
     tailwind: {
@@ -114,6 +115,33 @@ const registry: RegistryEntry[] = [
 
     // Files that make up this style registry (CSS files from src folder)
     files: ["index.css"],
+  },
+  {
+    name: "mode-toggle",
+    type: "registry:ui",
+    description:
+      "A toggle component for switching between light and dark themes.",
+    dependencies: ["lucide-react"],
+    devDependencies: [],
+    registryDependencies: ["button", "utils"],
+    tailwind: {
+      config: {},
+    },
+    cssVars: {},
+    files: ["mode-toggle.tsx"],
+  },
+  {
+    name: "utils",
+    type: "registry:lib",
+    description:
+      "Utility functions for combining class names using clsx and tailwind-merge.",
+    dependencies: ["clsx", "tailwind-merge"],
+    devDependencies: [],
+    tailwind: {
+      config: {},
+    },
+    cssVars: {},
+    files: ["utils.ts"],
   },
 ];
 export default registry;
