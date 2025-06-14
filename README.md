@@ -1,22 +1,39 @@
-# shadcn-registry-template
+# Ghibli Theme Registry
 
-> Easily distribute your own registry for shadcn components.
+> A custom shadcn/ui registry featuring Ghibli-inspired themes and components.
 
-shadcn 2 and later allow installing components from a custom registry like `npx shadcn-ui@latest add https://raw.githubusercontent.com/vantezzen/auto-form/main/registry/auto-form.json`. This template allows you to easily create your own registry for your components.
+This registry provides custom shadcn/ui components with beautiful Ghibli-inspired theming using a Gruvbox color palette.
 
-- [x] Demo page for developing components
+- [x] Ghibli-inspired Gruvbox theme
+- [x] Mode toggle component for dark/light theme switching
+- [x] Custom button variants
 - [x] Automatic registry generation
-- [x] Automatic GitHub Pages deployment
 
-## Demo
+## Available Components
 
-Install the `cool-text` component from this registry:
+### Mode Toggle
+
+A beautiful theme toggle component that switches between light and dark modes with smooth transitions.
 
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/vantezzen/shadcn-registry-template/main/registry/cool-text.json
+npx shadcn@latest add https://raw.githubusercontent.com/aaort/ghibli-theme-registry/main/registry/mode-toggle.json
 ```
 
-or view the custom components on the [demo page](https://vantezzen.github.io/shadcn-registry-template/).
+### Button
+
+Enhanced button component with Ghibli theme styling.
+
+```bash
+npx shadcn@latest add https://raw.githubusercontent.com/aaort/ghibli-theme-registry/main/registry/button.json
+```
+
+### Ghibli Theme Styles
+
+Complete Ghibli-inspired Gruvbox theme with light and dark variants.
+
+```bash
+npx shadcn@latest add https://raw.githubusercontent.com/aaort/ghibli-theme-registry/main/registry/ghibli-theme-styles.json
+```
 
 ## Usage
 
