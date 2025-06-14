@@ -1,0 +1,43 @@
+{
+  "name": "button",
+  "category": "components",
+  "display": "Button",
+  "description": "A versatile button component with multiple variants and sizes.",
+  "files": [
+    {
+      "path": "src/components/ui/button.tsx",
+      "export": ["Button", "buttonVariants"]
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "\"default\" | \"destructive\" | \"outline\" | \"secondary\" | \"ghost\" | \"link\"",
+      "default": "\"default\"",
+      "description": "Visual style of the button."
+    },
+    {
+      "name": "size",
+      "type": "\"default\" | \"sm\" | \"lg\" | \"icon\"",
+      "default": "\"default\"",
+      "description": "Size of the button."
+    },
+    {
+      "name": "asChild",
+      "type": "boolean",
+      "default": "false",
+      "description": "Render as child component instead of a button element."
+    }
+  ],
+  "usage": [
+    {
+      "code": "<Button>Click me</Button>"
+    },
+    {
+      "code": "<Button variant=\"destructive\">Delete</Button>"
+    },
+    {
+      "code": "<Button size=\"sm\">Small</Button>"
+    }
+  ]
+}
