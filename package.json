@@ -1,11 +1,11 @@
 {
-	"name": "shadcn-registry-template",
+	"name": "ghibli-theme-registry",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/aaort/shadcn-registry-template"
+		"url": "https://github.com/aaort/ghibli-theme-registry"
 	},
 	"scripts": {
 		"build": "tsx scripts/build.ts",
