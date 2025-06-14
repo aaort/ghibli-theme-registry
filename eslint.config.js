@@ -23,7 +23,7 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
-      indent: ["error", "tab"],
+      indent: ["error", "spaces"],
       "no-mixed-spaces-and-tabs": "error",
     },
   },
