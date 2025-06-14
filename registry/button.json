@@ -1,43 +1,23 @@
 {
-	"name": "button",
-	"type": "registry:ui",
-	"display": "Button",
-	"description": "A versatile button component with multiple variants and sizes.",
-	"files": [
-		{
-			"path": "src/components/ui/button.tsx",
-			"export": ["Button", "buttonVariants"]
-		}
-	],
-	"props": [
-		{
-			"name": "variant",
-			"type": "\"default\" | \"destructive\" | \"outline\" | \"secondary\" | \"ghost\" | \"link\"",
-			"default": "\"default\"",
-			"description": "Visual style of the button."
-		},
-		{
-			"name": "size",
-			"type": "\"default\" | \"sm\" | \"lg\" | \"icon\"",
-			"default": "\"default\"",
-			"description": "Size of the button."
-		},
-		{
-			"name": "asChild",
-			"type": "boolean",
-			"default": "false",
-			"description": "Render as child component instead of a button element."
-		}
-	],
-	"usage": [
-		{
-			"code": "<Button>Click me</Button>"
-		},
-		{
-			"code": "<Button variant=\"destructive\">Delete</Button>"
-		},
-		{
-			"code": "<Button size=\"sm\">Small</Button>"
-		}
-	]
+  "name": "button",
+  "type": "registry:ui",
+  "description": "A versatile button component with multiple variants and sizes.",
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "tailwind": {
+    "config": {}
+  },
+  "cssVars": {},
+  "files": [
+    {
+      "path": "button.tsx",
+      "content": "import * as React from \"react\"\nimport { Slot } from \"@radix-ui/react-slot\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst buttonVariants = cva(\n\t\"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50\",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-primary text-primary-foreground hover:bg-primary/90\",\n\t\t\t\tdestructive:\n          \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n\t\t\t\toutline:\n          \"border border-input bg-background hover:bg-accent hover:text-accent-foreground\",\n\t\t\t\tsecondary:\n          \"bg-secondary text-secondary-foreground hover:bg-secondary/80\",\n\t\t\t\tghost: \"hover:bg-accent hover:text-accent-foreground\",\n\t\t\t\tlink: \"text-primary underline-offset-4 hover:underline\",\n\t\t\t},\n\t\t\tsize: {\n\t\t\t\tdefault: \"h-10 px-4 py-2\",\n\t\t\t\tsm: \"h-9 rounded-md px-3\",\n\t\t\t\tlg: \"h-11 rounded-md px-8\",\n\t\t\t\ticon: \"h-10 w-10\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"default\",\n\t\t},\n\t}\n)\n\nexport interface ButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n\t({ className, variant, size, asChild = false, ...props }, ref) => {\n\t\tconst Comp = asChild ? Slot : \"button\"\n\t\treturn (\n\t\t\t<Comp\n\t\t\t\tclassName={cn(buttonVariants({ variant, size, className }))}\n\t\t\t\tref={ref}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t)\n\t}\n)\nButton.displayName = \"Button\"\n\nexport { Button, buttonVariants }\n",
+      "type": "registry:ui"
+    }
+  ]
 }
