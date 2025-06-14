@@ -9,6 +9,9 @@
     "tailwind-merge"
   ],
   "devDependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
   "tailwind": {
     "config": {}
   },
