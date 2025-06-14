@@ -1,0 +1,24 @@
+{
+  "name": "mode-toggle",
+  "type": "registry:ui",
+  "description": "A toggle component for switching between light and dark themes.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ],
+  "tailwind": {
+    "config": {}
+  },
+  "cssVars": {},
+  "files": [
+    {
+      "path": "mode-toggle.tsx",
+      "content": "import * as React from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Moon, Sun } from \"lucide-react\";\n\nexport function ModeToggle() {\n\tconst [theme, setTheme] = React.useState(() => {\n\t\tif (typeof window !== \"undefined\") {\n\t\t\treturn (\n\t\t\t\tlocalStorage.getItem(\"theme\") ||\n\t\t\t\t(window.matchMedia(\"(prefers-color-scheme: dark)\").matches\n\t\t\t\t\t? \"dark\"\n\t\t\t\t\t: \"light\")\n\t\t\t);\n\t\t}\n\t\treturn \"light\";\n\t});\n\n\tReact.useEffect(() => {\n\t\tif (theme === \"dark\") {\n\t\t\tdocument.documentElement.classList.add(\"dark\");\n\t\t} else {\n\t\t\tdocument.documentElement.classList.remove(\"dark\");\n\t\t}\n\t\tlocalStorage.setItem(\"theme\", theme);\n\t}, [theme]);\n\n\tconst toggleTheme = () => {\n\t\tsetTheme((prev) => (prev === \"dark\" ? \"light\" : \"dark\"));\n\t};\n\n\treturn (\n\t\t<Button\n\t\t\tclassName=\"h-7 w-7\"\n\t\t\tonClick={toggleTheme}\n\t\t\tsize=\"icon\"\n\t\t\tvariant=\"ghost\"\n\t\t>\n\t\t\t<Moon className=\"dark:hidden\" />\n\t\t\t<Sun className=\"hidden dark:block\" />\n\t\t\t<span className=\"sr-only\">Toggle theme</span>\n\t\t</Button>\n\t);\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}
