@@ -1,0 +1,164 @@
+{
+  "version": "0.0.0",
+  "timestamp": "2025-06-18T06:24:52.475Z",
+  "baseUrl": "https://raw.githubusercontent.com/aaort/ghibli-theme-registry/main/registry",
+  "components": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "description": "A versatile button component with multiple variants and sizes.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "description": "A context menu component with support for sub-menus, checkboxes, and radio items.",
+      "dependencies": [
+        "@radix-ui/react-context-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "description": "A dropdown menu component with support for sub-menus, checkboxes, and radio items.",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "ghibli-theme",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "button"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "description": "A basic input field component with consistent styling.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "description": "A label component for form elements.",
+      "dependencies": [
+        "@radix-ui/react-label",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "mode-toggle",
+      "type": "registry:ui",
+      "description": "A toggle component for switching between light and dark themes.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "description": "A select component with support for groups, labels, and custom styling.",
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "description": "A visual separator component that can be horizontal or vertical.",
+      "dependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "description": "A slider component for selecting values from a range.",
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "description": "A toggle switch component for binary on/off states.",
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "description": "A tab component for organizing content into multiple panels.",
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "description": "A textarea component for multi-line text input.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ]
+    }
+  ],
+  "styles": [
+    {
+      "name": "ghibli-theme-styles",
+      "type": "registry:style"
+    }
+  ],
+  "utils": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "description": "Utility functions for combining class names using clsx and tailwind-merge."
+    }
+  ]
+}

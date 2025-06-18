@@ -8,6 +8,9 @@ This registry provides custom shadcn/ui components with beautiful Ghibli-inspire
 - [x] Mode toggle component for dark/light theme switching
 - [x] Custom button variants
 - [x] Automatic registry generation
+- [x] Programmatic API for fetching components
+- [x] CLI tool for easy installation
+- [x] HTTP API for registry access
 
 ## Available Components
 
@@ -34,6 +37,74 @@ Complete Ghibli-inspired Gruvbox theme with light and dark variants.
 ```bash
 npx shadcn@latest add https://raw.githubusercontent.com/aaort/ghibli-theme-registry/main/registry/ghibli-theme-styles.json
 ```
+
+## Registry API
+
+The Ghibli Theme Registry provides multiple ways to access and install components:
+
+### 1. Programmatic API
+
+Install the package and use it in your JavaScript/TypeScript projects:
+
+```bash
+npm install ghibli-theme-registry
+```
+
+```javascript
+import { getComponent, getTheme, listComponents } from "ghibli-theme-registry";
+
+// Get a component with all dependencies
+const button = await getComponent("button");
+
+// Get theme configuration
+const theme = await getTheme();
+
+// List all available components
+const components = await listComponents();
+```
+
+### 2. CLI Tool
+
+Use the CLI tool to install components directly:
+
+```bash
+# Install globally
+npm install -g ghibli-theme-registry
+
+# Or use npx
+npx ghibli-theme-registry <command>
+```
+
+```bash
+# List all components
+ghibli-theme list
+
+# Install components
+ghibli-theme get button mode-toggle
+
+# Search for components
+ghibli-theme search "menu"
+
+# Get theme configuration
+ghibli-theme theme
+```
+
+### 3. HTTP API
+
+Start the API server to access the registry via HTTP:
+
+```bash
+npm run api:start
+```
+
+Then access endpoints like:
+
+- `GET /api/components` - List all components
+- `GET /api/components/button` - Get specific component
+- `GET /api/theme` - Get theme configuration
+- `GET /api/search?q=menu` - Search components
+
+See the [API Documentation](./API.md) for complete details on all available methods and endpoints.
 
 ## Usage
 
@@ -65,5 +136,27 @@ The syntax of this file uses the same syntax as `shadcn` requires for the final 
 - `npm run dev`: Start the development server. This will simply start a vite server so you can develop your components locally.
 - `npm run build`: Build the registry. This will build the registry and output it to the `build` directory. This will also output information on where the registry is located and how users can install it - you should probably copy this information to your README.
 - `npm run build:demo`: Build the demo.
-- `npm run lint`
+- `npm run build:api`: Build the TypeScript API for distribution.
+- `npm run lint`: Run ESLint.
 - `npm run dev:server`: Starts a server to host your registry locally. This is useful for testing the registry locally and installing in another project.
+- `npm run api:start`: Start the HTTP API server.
+- `npm run api:dev`: Start the HTTP API server in development mode with auto-reload.
+- `npm run cli`: Run the CLI tool directly from source.
+
+## Examples
+
+Check out the [examples](./examples) directory for practical usage examples:
+
+```bash
+# Install a single component
+node examples/install-components.js single
+
+# Install multiple components
+node examples/install-components.js multiple
+
+# Install theme styles
+node examples/install-components.js theme
+
+# Analyze component dependencies
+node examples/install-components.js analyze
+```

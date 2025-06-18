@@ -1,8 +1,12 @@
 import chalk from "chalk";
+import { exec } from "child_process";
 import { readFile, writeFile } from "fs/promises";
+import { promisify } from "util";
 import registryConfig from "../registry.ts";
 import { RegistryEntry } from "./schema";
 import { getGitHubBaseUrl } from "./utils.ts";
+
+const execAsync = promisify(exec);
 
 console.log("Building registry...");
 
@@ -60,4 +64,13 @@ After pushing the changes to GitHub, users can install it by running:
 ${chalk.green("npx shadcn@latest add " + gitHub)}
   `,
   );
+}
+
+// Build the registry index
+console.log("\n" + chalk.bold("Building registry index..."));
+try {
+  await execAsync("tsx scripts/build-index.ts");
+} catch (error) {
+  console.error(chalk.red("Failed to build registry index:"), error);
+  process.exit(1);
 }
